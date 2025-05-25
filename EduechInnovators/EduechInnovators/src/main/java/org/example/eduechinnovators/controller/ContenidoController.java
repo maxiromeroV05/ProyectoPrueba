@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v4/contenidos")
+@RequestMapping("/api/v5/contenidos")
 public class ContenidoController {
 
     @Autowired
