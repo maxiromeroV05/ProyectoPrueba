@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pago {
+    private int id;
     private int tarjeta;
     private int clave;
     private String email;
