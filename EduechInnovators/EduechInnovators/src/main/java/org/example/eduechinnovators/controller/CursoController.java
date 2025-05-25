@@ -35,7 +35,7 @@ public class CursoController {
 
     // Actualizar un curso existente
     @PutMapping("/{id}")
-    public Curso actualizarCurso(@PathVariable int id, @RequestBody Curso curso) {
+    public Curso editarCurso(@PathVariable int id, @RequestBody Curso curso) {
         return cursoService.updateCurso(id, curso);
     }
 
