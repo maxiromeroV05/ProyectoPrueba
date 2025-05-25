@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Contenido {
+    private int id;
     private String materia;
     private String evaluaciones;
     private String progreso ;
