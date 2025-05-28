@@ -13,20 +13,20 @@ public class SoporteService {
     @Autowired
     private SoporteRepository repository;
 
-    public List<Soporte> listar() {
+    public List<Soporte> BuscarSoporte() {
         return repository.findAll();
     }
 
-    public Soporte obtener(int id) {
+    public Soporte buscarSoporteId(int id) {
         return repository.findById(id).orElse(null);
     }
 
-    public Soporte crear(Soporte soporte) {
+    public Soporte guardarSoporte(Soporte soporte) {
         soporte.setId(0); // forzar nuevo ID
         return repository.save(soporte);
     }
 
-    public Soporte actualizar(int id, Soporte soporte) {
+    public Soporte editarSoporte(int id, Soporte soporte) {
         Optional<Soporte> existente = repository.findById(id);
         if (existente.isPresent()) {
             Soporte s = existente.get();
@@ -37,8 +37,9 @@ public class SoporteService {
         }
         return null;
     }
-    public void eliminar(int id) {
+    public String eliminarSoporte(int id) {
         repository.deleteById(id);
+        return "Soporte eliminado" ;
     }
 }
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v5/pagos")
+@RequestMapping("/api/v4/pagos")
 public class PagoController {
 
     @Autowired
@@ -18,30 +18,30 @@ public class PagoController {
     // Crear un nuevo pago
     @PostMapping
     public Pago crearPago(@RequestBody Pago pago) {
-        return pagoService.savePago(pago);
+        return pagoService.guardarPago(pago);
     }
 
     // Obtener todos los pagos
     @GetMapping
     public List<Pago> obtenerTodosLosPagos() {
-        return pagoService.getPagos();
+        return pagoService.buscarPagos();
     }
 
     // Obtener un pago por ID
     @GetMapping("/{id}")
     public Pago obtenerPagoPorId(@PathVariable int id) {
-        return pagoService.getPagoId(id);
+        return pagoService.buscarPagoId(id);
     }
 
     // Actualizar un pago existente
     @PutMapping("/{id}")
     public Pago editarPago(@PathVariable int id, @RequestBody Pago pago) {
-        return pagoService.updatePago(id, pago);
+        return pagoService.editarPago(id, pago);
     }
 
     // Eliminar un pago
     @DeleteMapping("/{id}")
     public void eliminarPago(@PathVariable int id) {
-        pagoService.deletePago(id);
+        pagoService.eliminarPago(id);
     }
 }

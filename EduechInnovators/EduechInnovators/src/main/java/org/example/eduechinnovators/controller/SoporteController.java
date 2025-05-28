@@ -8,35 +8,35 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v3/soportes")
+@RequestMapping("/api/v5/soportes")
 public class SoporteController {
 
     @Autowired
     private SoporteService service;
 
     @GetMapping
-    public List<Soporte> listar() {
-        return service.listar();
+    public List<Soporte> listarSporte() {
+        return service.BuscarSoporte();
     }
 
     @GetMapping("/{id}")
-    public Soporte obtener(@PathVariable int id) {
-        return service.obtener(id);
+    public Soporte obtenerSoporte(@PathVariable int id) {
+        return service.buscarSoporteId(id);
     }
 
     @PostMapping
-    public Soporte crear(@RequestBody Soporte soporte) {
-        return service.crear(soporte);
+    public Soporte crearSoporte(@RequestBody Soporte soporte) {
+        return service.guardarSoporte(soporte);
     }
 
     @PutMapping("/{id}")
-    public Soporte actualizar(@PathVariable int id, @RequestBody Soporte soporte) {
-        return service.actualizar(id, soporte);
+    public Soporte editarSoporte(@PathVariable int id, @RequestBody Soporte soporte) {
+        return service.editarSoporte(id, soporte);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable int id) {
-        service.eliminar(id);
+    public void eliminarSoporte(@PathVariable int id) {
+        service.eliminarSoporte(id);
     }
 }
 

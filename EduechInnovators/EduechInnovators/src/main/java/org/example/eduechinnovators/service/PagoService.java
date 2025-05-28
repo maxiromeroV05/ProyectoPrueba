@@ -12,23 +12,23 @@ public class PagoService {
     @Autowired
     private PagoRepository pagoRepository;
 
-    public List<Pago> getPagos() {
+    public List<Pago> buscarPagos() {
         return pagoRepository.obtenerPagos();
     }
 
-    public Pago savePago(Pago pago) {
+    public Pago guardarPago(Pago pago) {
         return pagoRepository.guardarPago(pago);
     }
 
-    public Pago getPagoId(int id) {
+    public Pago buscarPagoId(int id) {
         return pagoRepository.buscarPago(id);
     }
 
-    public Pago updatePago(int id, Pago pago) {
+    public Pago editarPago(int id, Pago pago) {
         return pagoRepository.actualizarPago(pago);
     }
 
-    public String deletePago(int id) {
+    public String eliminarPago(int id) {
         pagoRepository.eliminar(id);
         return "Pago eliminado";
     }
