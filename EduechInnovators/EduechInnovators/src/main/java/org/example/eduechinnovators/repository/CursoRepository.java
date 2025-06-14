@@ -38,7 +38,7 @@ public class CursoRepository {
             cursoExistente.setNombre(cursoActualizado.getNombre());
             cursoExistente.setGestion(cursoActualizado.getGestion());
             cursoExistente.setInstructores(cursoActualizado.getInstructores());
-            cursoExistente.setEvaluar(cursoActualizado.isEvaluar());
+            cursoExistente.setEvaluar(cursoActualizado.getEvaluar());
         }
         return cursoExistente;
     }
