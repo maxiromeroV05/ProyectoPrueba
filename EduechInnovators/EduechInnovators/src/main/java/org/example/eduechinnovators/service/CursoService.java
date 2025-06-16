@@ -2,6 +2,7 @@ package org.example.eduechinnovators.service;
 
 import org.example.eduechinnovators.model.Curso;
 import org.example.eduechinnovators.repository.CursoRepository;
+import org.example.eduechinnovators.repository.JpaCursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,29 +10,37 @@ import java.util.List;
 
 @Service
 public class CursoService {
-   @Autowired
-   private CursoRepository cursoRepository;
 
-    public List<Curso> buscarCursos() {
-        return cursoRepository.obtenerCursos();
-    }
+    @Autowired
+    private JpaCursoRepository cursoRepository;
 
     public Curso guardarCurso(Curso curso) {
-        return cursoRepository.guardarCurso(curso);
+        return cursoRepository.save(curso);
+    }
 
+    public List<Curso> buscarCursos() {
+        return cursoRepository.findAll();
     }
 
     public Curso buscarCursoId(int id) {
-        return cursoRepository.buscarCurso(id);
+        return cursoRepository.findById(id).orElse(null);
     }
 
-    public Curso editarCurso(int id ,Curso curso) {
-        return cursoRepository.actualizarCurso(curso);
+    public Curso editarCurso(int id, Curso curso) {
+        Curso cursoExistente = buscarCursoId(id);
+        if (cursoExistente != null) {
+            cursoExistente.setNombre(curso.getNombre());
+            cursoExistente.setGestion(curso.getGestion());
+            cursoExistente.setInstructores(curso.getInstructores());
+            cursoExistente.setEvaluar(curso.getEvaluar());
+            return cursoRepository.save(cursoExistente);
+        }
+        return null;
     }
 
     public String eliminarCurso(int id) {
-        cursoRepository.eliminar(id);
+        cursoRepository.deleteById(id);
         return "Curso eliminado";
-
     }
 }
+

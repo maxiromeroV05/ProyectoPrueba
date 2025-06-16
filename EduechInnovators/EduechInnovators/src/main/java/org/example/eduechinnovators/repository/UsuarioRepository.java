@@ -2,6 +2,7 @@ package org.example.eduechinnovators.repository;
 
 import org.example.eduechinnovators.model.Curso;
 import org.example.eduechinnovators.model.Usuario;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,27 +10,23 @@ import java.util.List;
 
 @Service
 public class UsuarioRepository {
-    private List<Usuario> usuarios = new ArrayList<>();
-    private int idCounter = 1;
+
+    @Autowired
+    private JpaUsuarioRepository jpaUsuarioRepository;
 
     // Obtener todos los usuarios
     public List<Usuario> obtenerUsuarios() {
-        return usuarios;
+        return jpaUsuarioRepository.findAll();
     }
 
     // Guardar un nuevo usuario
     public Usuario guardarUsuario(Usuario usuario) {
-        usuario.setId(idCounter++);
-        usuarios.add(usuario);
-        return usuario;
+        return jpaUsuarioRepository.save(usuario);
     }
 
     // Buscar un usuario por ID
     public Usuario buscarUsuarioId(int id) {
-        return usuarios.stream()
-                .filter(usuario -> usuario.getId() == id)
-                .findFirst()
-                .orElse(null);
+        return jpaUsuarioRepository.findById(id).orElse(null);
     }
 
     // Editar un usuario
@@ -41,12 +38,13 @@ public class UsuarioRepository {
             usuarioExistente.setEmail(usuarioEditado.getEmail());
             usuarioExistente.setTelefono(usuarioEditado.getTelefono());
             usuarioExistente.setDireccion(usuarioEditado.getDireccion());
+            return jpaUsuarioRepository.save(usuarioExistente);
         }
-        return usuarioExistente;
+        return null;
     }
 
     // Eliminar un usuario por ID
     public void eliminarUsuario(int id) {
-        usuarios.removeIf(usuario -> usuario.getId() == id);
+        jpaUsuarioRepository.deleteById(id);
     }
 }

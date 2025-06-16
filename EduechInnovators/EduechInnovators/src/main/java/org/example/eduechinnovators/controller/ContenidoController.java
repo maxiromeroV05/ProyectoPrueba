@@ -12,31 +12,31 @@ import java.util.List;
 public class ContenidoController {
 
     @Autowired
-    private ContenidoService contenidoService;
+    private ContenidoService service;
 
     @PostMapping
-    public Contenido crearContenido(@RequestBody Contenido contenido) {
-        return contenidoService.guardarContenido(contenido);
+    public Contenido crear(@RequestBody Contenido c) {
+        return service.guardar(c);
     }
 
     @GetMapping
-    public List<Contenido> obtenerTodosLosContenidos() {
-        return contenidoService.buscarContenidos();
+    public List<Contenido> listar() {
+        return service.listar();
     }
 
     @GetMapping("/{id}")
-    public Contenido obtenerContenidoPorId(@PathVariable int id) {
-        return contenidoService.buscarContenidoId(id);
+    public Contenido obtener(@PathVariable int id) {
+        return service.buscarPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Contenido actualizarContenido(@PathVariable int id, @RequestBody Contenido contenido) {
-        return contenidoService.editarContenido(id, contenido);
+    public Contenido editar(@PathVariable int id, @RequestBody Contenido nuevo) {
+        return service.editar(id, nuevo);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarContenido(@PathVariable int id) {
-        contenidoService.eliminarContenido(id);
+    public void eliminar(@PathVariable int id) {
+        service.eliminar(id);
     }
 }
 

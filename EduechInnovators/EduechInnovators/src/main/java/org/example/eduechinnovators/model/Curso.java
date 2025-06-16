@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Curso")
+@Table(name = "CURSO") // en mayúscula si la tabla en Oracle está en mayúscula
 public class Curso {
 
     @Id
@@ -23,6 +23,4 @@ public class Curso {
 
     @Column(length = 1)
     private String evaluar;
-
-
 }

@@ -1,6 +1,7 @@
 package org.example.eduechinnovators.service;
 
 import org.example.eduechinnovators.model.Soporte;
+import org.example.eduechinnovators.repository.JpaSoporteRepository;
 import org.example.eduechinnovators.repository.SoporteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import java.util.Optional;
 public class SoporteService {
 
     @Autowired
-    private SoporteRepository repository;
+    private JpaSoporteRepository repository;
 
     public List<Soporte> BuscarSoporte() {
         return repository.findAll();
@@ -37,9 +38,8 @@ public class SoporteService {
         }
         return null;
     }
-    public String eliminarSoporte(int id) {
+
+    public void eliminarSoporte(int id) {
         repository.deleteById(id);
-        return "Soporte eliminado" ;
     }
 }
-

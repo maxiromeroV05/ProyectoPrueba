@@ -11,19 +11,16 @@ public class CursoRepository {
     private List<Curso> cursos = new ArrayList<>();
     private int idCounter = 1;
 
-    // Obtener todos los cursos
     public List<Curso> obtenerCursos() {
         return cursos;
     }
 
-    // Guardar un nuevo curso
     public Curso guardarCurso(Curso curso) {
         curso.setId(idCounter++);
         cursos.add(curso);
         return curso;
     }
 
-    // Buscar un curso por ID
     public Curso buscarCurso(int id) {
         return cursos.stream()
                 .filter(curso -> curso.getId() == id)
@@ -31,7 +28,6 @@ public class CursoRepository {
                 .orElse(null);
     }
 
-    // Actualizar un curso
     public Curso actualizarCurso(Curso cursoActualizado) {
         Curso cursoExistente = buscarCurso(cursoActualizado.getId());
         if (cursoExistente != null) {
@@ -43,7 +39,6 @@ public class CursoRepository {
         return cursoExistente;
     }
 
-    // Eliminar un curso por ID
     public void eliminar(int id) {
         cursos.removeIf(curso -> curso.getId() == id);
     }

@@ -1,6 +1,9 @@
 package org.example.eduechinnovators.repository;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.example.eduechinnovators.model.Soporte;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -9,28 +12,33 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Repository
 public class SoporteRepository {
 
-    private final Map<Integer, Soporte> almacen = new HashMap<>();
-    private final AtomicInteger contadorId = new AtomicInteger(1);
+    @PersistenceContext
+    private EntityManager entityManager;
 
+    // Usar JpaRepository para las operaciones básicas de CRUD
+    @Autowired
+    private JpaSoporteRepository jpaSoporteRepository;
+
+    // Obtener todos los soportes
+    // Obtener todos los soportes
     public List<Soporte> findAll() {
-        return new ArrayList<>(almacen.values());
+        return jpaSoporteRepository.findAll();
     }
 
+    // Buscar soporte por ID
     public Optional<Soporte> findById(int id) {
-        return Optional.ofNullable(almacen.get(id));
+        return jpaSoporteRepository.findById(id);
     }
 
+    // Guardar soporte
     public Soporte save(Soporte soporte) {
-        if (soporte.getId() == 0) {
-            int id = contadorId.getAndIncrement();
-            soporte.setId(id);
-        }
-        almacen.put(soporte.getId(), soporte);
-        return soporte;
+        return jpaSoporteRepository.save(soporte);
     }
 
+    // Eliminar soporte por ID
     public void deleteById(int id) {
-        almacen.remove(id);
+        jpaSoporteRepository.deleteById(id);
     }
+
 }
 

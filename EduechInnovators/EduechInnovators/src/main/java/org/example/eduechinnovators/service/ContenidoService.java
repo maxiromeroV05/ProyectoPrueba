@@ -1,39 +1,45 @@
 package org.example.eduechinnovators.service;
 
-
-import org.springframework.stereotype.Service;
-
 import org.example.eduechinnovators.model.Contenido;
-import org.example.eduechinnovators.repository.ContenidoRepository;
+import org.example.eduechinnovators.repository.JpaContenidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ContenidoService {
+
     @Autowired
-    private ContenidoRepository contenidoRepository;
+    private JpaContenidoRepository repository;
 
-    public List<Contenido> buscarContenidos() {
-        return contenidoRepository.obtenerContenidos();
+    public Contenido guardar(Contenido contenido) {
+        return repository.save(contenido);
     }
 
-    public Contenido guardarContenido(Contenido contenido) {
-        return contenidoRepository.guardarContenido(contenido);
+    public List<Contenido> listar() {
+        return repository.findAll();
     }
 
-    public Contenido buscarContenidoId(int id) {
-        return contenidoRepository.buscarContenido(id);
+    public Contenido buscarPorId(int id) {
+        return repository.findById(id).orElse(null);
     }
 
-    public Contenido editarContenido(int id, Contenido contenido) {
-        return contenidoRepository.actualizarContenido(contenido);
+    public Contenido editar(int id, Contenido nuevo) {
+        Contenido existente = buscarPorId(id);
+        if (existente != null) {
+            existente.setMateria(nuevo.getMateria());
+            existente.setEvaluaciones(nuevo.getEvaluaciones());
+            existente.setProgreso(nuevo.getProgreso());
+            existente.setForos(nuevo.getForos());
+            return repository.save(existente);
+        }
+        return null;
     }
 
-    public String eliminarContenido(int id) {
-        contenidoRepository.eliminar(id);
-        return "Contenido eliminado";
+    public String eliminar(int id) {
+        repository.deleteById(id);
+        return "Se eliminó con éxito";
     }
 }
 

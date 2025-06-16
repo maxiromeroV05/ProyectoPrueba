@@ -15,7 +15,7 @@ public class SoporteController {
     private SoporteService service;
 
     @GetMapping
-    public List<Soporte> listarSporte() {
+    public List<Soporte> listarSoportes() {
         return service.BuscarSoporte();
     }
 

@@ -30,7 +30,8 @@ public class UsuarioService {
         return usuarioRepository.editarUsuario(usuario);
     }
 
-    public void eliminarUsuario(int id) {
+    public String eliminarUsuario(int id) {
         usuarioRepository.eliminarUsuario(id);
+        return "Usuario eliminado";
     }
 }

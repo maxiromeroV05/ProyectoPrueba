@@ -1,30 +1,26 @@
 package org.example.eduechinnovators.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "SOPORTE")
 public class Soporte {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gen_seq")
+    @SequenceGenerator(name = "gen_seq", sequenceName = "GENERIC_SEQ", allocationSize = 1)
     private int id;
+
+    @Column(name = "USUARIO_ID")
     private int usuarioId;
+
     private String mensaje;
     private String estado;
-
-    public Soporte() {}
-
-    public Soporte(int id, int usuarioId, String mensaje, String estado) {
-        this.id = id;
-        this.usuarioId = usuarioId;
-        this.mensaje = mensaje;
-        this.estado = estado;
-    }
-
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-
-    public int getUsuarioId() { return usuarioId; }
-    public void setUsuarioId(int usuarioId) { this.usuarioId = usuarioId; }
-
-    public String getMensaje() { return mensaje; }
-    public void setMensaje(String mensaje) { this.mensaje = mensaje; }
-
-    public String getEstado() { return estado; }
-    public void setEstado(String estado) { this.estado = estado; }
 }
 
