@@ -1,7 +1,7 @@
 package org.example.eduechinnovators.service;
 
 import org.example.eduechinnovators.model.Contenido;
-import org.example.eduechinnovators.repository.JpaContenidoRepository;
+import org.example.eduechinnovators.jparepository.JpaContenidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

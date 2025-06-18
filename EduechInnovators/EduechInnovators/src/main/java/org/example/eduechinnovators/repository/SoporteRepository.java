@@ -2,12 +2,12 @@ package org.example.eduechinnovators.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.example.eduechinnovators.jparepository.JpaSoporteRepository;
 import org.example.eduechinnovators.model.Soporte;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class SoporteRepository {

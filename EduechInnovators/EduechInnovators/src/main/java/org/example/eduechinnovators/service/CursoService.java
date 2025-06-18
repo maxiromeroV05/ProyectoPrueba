@@ -1,8 +1,7 @@
 package org.example.eduechinnovators.service;
 
 import org.example.eduechinnovators.model.Curso;
-import org.example.eduechinnovators.repository.CursoRepository;
-import org.example.eduechinnovators.repository.JpaCursoRepository;
+import org.example.eduechinnovators.jparepository.JpaCursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

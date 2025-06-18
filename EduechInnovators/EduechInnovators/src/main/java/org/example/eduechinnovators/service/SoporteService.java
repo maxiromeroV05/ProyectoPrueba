@@ -1,8 +1,7 @@
 package org.example.eduechinnovators.service;
 
 import org.example.eduechinnovators.model.Soporte;
-import org.example.eduechinnovators.repository.JpaSoporteRepository;
-import org.example.eduechinnovators.repository.SoporteRepository;
+import org.example.eduechinnovators.jparepository.JpaSoporteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

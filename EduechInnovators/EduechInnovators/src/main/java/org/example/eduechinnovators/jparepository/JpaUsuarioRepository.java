@@ -1,4 +1,4 @@
-package org.example.eduechinnovators.repository;
+package org.example.eduechinnovators.jparepository;
 
 import org.example.eduechinnovators.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;

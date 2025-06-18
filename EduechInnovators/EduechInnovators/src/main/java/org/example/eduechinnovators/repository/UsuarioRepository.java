@@ -1,11 +1,10 @@
 package org.example.eduechinnovators.repository;
 
-import org.example.eduechinnovators.model.Curso;
+import org.example.eduechinnovators.jparepository.JpaUsuarioRepository;
 import org.example.eduechinnovators.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

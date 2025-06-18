@@ -1,7 +1,7 @@
 package org.example.eduechinnovators.service;
 
 import org.example.eduechinnovators.model.Pago;
-import org.example.eduechinnovators.repository.JpaPagoRepository;
+import org.example.eduechinnovators.jparepository.JpaPagoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
