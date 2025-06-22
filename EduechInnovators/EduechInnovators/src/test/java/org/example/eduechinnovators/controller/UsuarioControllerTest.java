@@ -1,6 +1,5 @@
-package org.example.eduechinnovators;
+package org.example.eduechinnovators.controller;
 
-import org.example.eduechinnovators.controller.UsuarioController;
 import org.example.eduechinnovators.model.Usuario;
 import org.example.eduechinnovators.service.UsuarioService;
 import org.junit.jupiter.api.Test;

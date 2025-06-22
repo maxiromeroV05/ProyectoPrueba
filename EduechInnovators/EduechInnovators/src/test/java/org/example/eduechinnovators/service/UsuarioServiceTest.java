@@ -1,6 +1,7 @@
+package org.example.eduechinnovators.service;
+
 import org.example.eduechinnovators.model.Usuario;
 import org.example.eduechinnovators.repository.UsuarioRepository;
-import org.example.eduechinnovators.service.UsuarioService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -22,7 +23,7 @@ class UsuarioServiceTest {
     private UsuarioService usuarioService;
 
     @Test
-    void buscarUsuarios_debeRetornarLista() {
+    void buscarUsuarios() {
         Usuario usuario = new Usuario();
         usuario.setNombre("Max");
 
@@ -37,7 +38,7 @@ class UsuarioServiceTest {
     }
 
     @Test
-    void guardarUsuario_debeRetornarUsuarioGuardado() {
+    void guardarUsuario() {
         Usuario nuevo = new Usuario();
         nuevo.setNombre("Nuevo");
 
@@ -56,7 +57,7 @@ class UsuarioServiceTest {
     }
 
     @Test
-    void buscarUsuarioId_debeRetornarUsuario() {
+    void buscarUsuarioId() {
         Usuario usuario = new Usuario();
         usuario.setId(1);
         usuario.setNombre("Max");
@@ -72,7 +73,7 @@ class UsuarioServiceTest {
     }
 
     @Test
-    void editarUsuario_debeRetornarUsuarioEditado() {
+    void editarUsuario() {
         int id = 1;
         Usuario usuarioEditado = new Usuario();
         usuarioEditado.setId(id);
@@ -89,7 +90,7 @@ class UsuarioServiceTest {
     }
 
     @Test
-    void eliminarUsuario_debeLlamarRepositorioYRetornarMensaje() {
+    void eliminarUsuario() {
         int id = 1;
 
         doNothing().when(usuarioRepository).eliminarUsuario(id);

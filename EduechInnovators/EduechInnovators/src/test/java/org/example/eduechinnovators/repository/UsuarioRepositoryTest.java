@@ -1,8 +1,7 @@
-package org.example.eduechinnovators;
+package org.example.eduechinnovators.repository;
 
 import org.example.eduechinnovators.jparepository.JpaUsuarioRepository;
 import org.example.eduechinnovators.model.Usuario;
-import org.example.eduechinnovators.repository.UsuarioRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -93,7 +92,7 @@ class UsuarioRepositoryTest {
         assertEquals("Editado", resultado.getNombre());
         assertEquals("Apellido", resultado.getApellido());
         assertEquals("email@test.com", resultado.getEmail());
-        assertEquals("123456789", resultado.getTelefono());
+        assertEquals(123456789, resultado.getTelefono());
         assertEquals("Dirección 123", resultado.getDireccion());
     }
 
