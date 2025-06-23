@@ -3,7 +3,7 @@
 🧾 Instrucciones de Ejecución del Proyecto
 Este proyecto está desarrollado en Java utilizando el framework Spring Boot. Está orientado a gestionar inscripciones en cursos, permitiendo operaciones básicas como crear, leer, actualizar y eliminar registros relacionados a usuarios, cursos e inscripciones.
 
-A continuación, se detalla de forma clara y paso a paso cómo ejecutar el proyecto correctamente, pensado para alguien que nunca ha trabajado con este tipo de aplicación:
+A continuación, se detalla de forma clara y paso a paso de cómo ejecutar el proyecto correctamente, pensado para alguien que nunca ha trabajado con este tipo de aplicación:
 
 1. Requisitos previos
 Antes de poder ejecutar el proyecto, necesitas tener instalado en tu computador lo siguiente:
