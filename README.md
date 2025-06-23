@@ -1,107 +1,98 @@
 ﻿# ProyectoPrueba
 
-🧾 Instrucciones de Ejecución del Proyecto
-Este proyecto está desarrollado en Java utilizando el framework Spring Boot. Está orientado a gestionar inscripciones en cursos, permitiendo operaciones básicas como crear, leer, actualizar y eliminar registros relacionados a usuarios, cursos e inscripciones.
+# 🧾 Instrucciones de Ejecución del Proyecto
 
-A continuación, se detalla de forma clara y paso a paso de cómo ejecutar el proyecto correctamente, pensado para alguien que nunca ha trabajado con este tipo de aplicación:
+Este proyecto está desarrollado en Java utilizando el framework **Spring Boot**. Está diseñado para gestionar **inscripciones a cursos**, permitiendo operaciones como crear, ver, actualizar y eliminar datos relacionados a **usuarios, cursos e inscripciones**.
 
-1. Requisitos previos
-Antes de poder ejecutar el proyecto, necesitas tener instalado en tu computador lo siguiente:
+A continuación, se explican paso a paso las instrucciones para ejecutar este sistema, pensando en personas que **nunca han trabajado con este tipo de aplicaciones**.
 
-Un entorno de desarrollo como IntelliJ IDEA (preferentemente) o cualquier otro que soporte proyectos Maven y Spring Boot.
+---
 
-El JDK (Java Development Kit), versión 17 o superior.
+## 1. Requisitos previos
 
-Conexión a internet para que el entorno pueda descargar las dependencias necesarias.
+Antes de ejecutar el proyecto, es necesario contar con lo siguiente instalado en tu computador:
 
-Una base de datos de oracle cloud donde se necesita su conexion para el funcionamiento de ella.
+- Un programa para desarrollar, como **IntelliJ IDEA**, que permita trabajar con proyectos Java.
+- Tener **Java 17 o superior** instalado.
+- Conexión a internet para que el entorno pueda preparar el proyecto automáticamente.
+- Una **base de datos en Oracle Cloud**, ya que el sistema necesita conectarse a ella para funcionar correctamente.
 
-2. Cómo funciona el proyecto
-Este proyecto está estructurado en varias capas:
+---
 
-Modelo (model): Contiene las clases que representan los datos, como usuarios, cursos e inscripciones.
+## 2. ¿Cómo funciona el proyecto?
 
-Repositorio (repository): Define las interfaces que permiten acceder a la base de datos de manera automática.
+Este proyecto está organizado en distintas partes, cada una con un rol específico:
 
-Servicio (service): Contiene la lógica del negocio. Por ejemplo, cómo se guarda una inscripción o cómo se obtiene una lista de cursos.
+- **Modelo (model):** Aquí están las clases que representan los datos (como Usuario, Curso e Inscripción).
+- **Repositorio (repository):** Se encarga de acceder a la base de datos para guardar y obtener datos automáticamente.
+- **Servicio (service):** Aquí vive la lógica del negocio. Es donde se define qué hacer con los datos antes de enviarlos o guardarlos.
+- **Controlador (controller):** Recibe las solicitudes del usuario (como ingresar a una dirección web) y responde con la información correspondiente.
+- **Aplicación principal:** Es la parte del proyecto que se ejecuta primero y que pone en marcha todo el sistema.
 
-Controlador (controller): Es el encargado de recibir las solicitudes del usuario (por ejemplo, al ingresar a una URL) y responder con datos o acciones.
+---
 
-Aplicación principal: Es la clase que se encarga de iniciar el proyecto, lanzar el servidor y hacer que todo comience a funcionar.
+## 3. Pasos para ejecutar el proyecto
 
-3. Ejecución del proyecto paso a paso
-Paso 1: Abrir el proyecto
-Se debe abrir el entorno de desarrollo (por ejemplo, IntelliJ).
+### Paso 1: Abrir el proyecto
+- Abre IntelliJ IDEA (u otro programa similar) y selecciona la opción para **importar un proyecto existente**.
+- Elige la carpeta del proyecto.
+- El sistema detectará automáticamente que es un proyecto Maven y comenzará a prepararlo.
 
-Luego, importar el proyecto como un proyecto Maven existente.
+### Paso 2: Esperar que se cargue el proyecto
+- Una vez abierto, el entorno descargará automáticamente todas las herramientas necesarias para que el sistema funcione.
+- Esto puede tomar algunos minutos si es la primera vez.
 
-Esperar a que el entorno reconozca y cargue todas las configuraciones del proyecto.
+### Paso 3: Ejecutar la aplicación
+- Busca la clase principal del proyecto, que usualmente termina en la palabra `Application`.
+- Ejecuta esa clase. Esto hará que el sistema inicie un **servidor local** en tu computador.
 
-Paso 2: Esperar la descarga de dependencias
-El sistema automáticamente descargará las herramientas necesarias que el proyecto requiere para funcionar. Este proceso puede tardar unos minutos dependiendo de la conexión a internet.
+### Paso 4: Probar el sistema
+- Una vez iniciado, el servidor estará listo para recibir solicitudes.
+- Puedes probar las funcionalidades del sistema con un navegador o herramientas como **Postman**.
+- El sistema te permitirá registrar usuarios, crear cursos, hacer inscripciones y consultar datos guardados.
 
-Paso 3: Ejecutar la aplicación
-Una vez que todo esté cargado, se debe buscar la clase principal del proyecto, que es la que contiene el método para iniciar (esta clase generalmente termina con la palabra “Application”).
+---
 
-Se debe ejecutar esa clase. El entorno levantará un servidor local que estará listo para recibir peticiones.
+## 4. Consideraciones importantes
 
-Paso 4: Probar el funcionamiento
-Al ejecutarse correctamente, el proyecto inicia un servidor web en tu computador.
+Este proyecto **no usa una base de datos temporal**. En su lugar, está conectado a una base de datos real alojada en **Oracle Cloud**. Esto significa que:
 
-Desde allí, puedes acceder a las funciones del sistema usando un navegador o herramientas para hacer pruebas (como Postman).
+- **Los datos se guardan permanentemente**, incluso si el sistema se apaga.
+- Para que todo funcione, es importante que:
+  - Tu base de datos en Oracle Cloud esté activa.
+  - Las credenciales (usuario, contraseña, dirección del servidor, etc.) estén bien configuradas en el archivo del proyecto llamado `application.properties`.
+  - Tu red permita conectarte a Oracle Cloud (que los puertos estén habilitados).
+  - En algunos casos, puede ser necesario ajustar la ruta o ubicación del controlador de la base de datos en tu computador local.
 
-El proyecto incluye funciones para registrar usuarios, cursos, hacer inscripciones y consultar información.
+Además, este proyecto está preparado para seguir creciendo. Puedes agregar fácilmente nuevas funciones como:
+- Autenticación de usuarios.
+- Reportes de información.
+- Integración con otros servicios.
+- Una interfaz gráfica que facilite su uso.
 
-4. Consideraciones adicionales
-Este proyecto está configurado para conectarse a una base de datos Oracle alojada en la nube mediante Oracle Cloud. Por lo tanto:
+---
 
-Para que la conexión funcione correctamente, debes asegurarte de que:
+## 5. Pruebas unitarias
 
-La base de datos en Oracle Cloud esté activa y accesible.
+El proyecto incluye **pruebas unitarias**, que son pequeños programas que revisan si cada parte del sistema está funcionando correctamente.
 
-Las credenciales de conexión (usuario, contraseña, URL del host y puerto) estén correctamente configuradas en el archivo de propiedades del proyecto (application.properties o application.yml).
+Estas pruebas están enfocadas especialmente en la **lógica de los servicios** del sistema. Por ejemplo:
+- Verificar que una inscripción se guarde bien.
+- Comprobar que los datos se recuperen correctamente al buscarlos.
+- Revisar que el sistema reaccione adecuadamente si los datos no existen o hay errores.
 
-La red de Oracle Cloud permita conexiones entrantes desde tu máquina local (es decir, los puertos estén abiertos y accesibles).
+Estas pruebas fueron desarrolladas usando **JUnit** y **Mockito**, que son herramientas estándar en el desarrollo en Java. Aunque no muestran una interfaz visual, son muy importantes para mantener la calidad del sistema y evitar errores cuando se hacen cambios en el código.
 
-Esta configuración permite que los datos persistan incluso si se apaga el servidor, ya que no se pierde la información como ocurriría con una base de datos temporal.
+---
 
-Además, el sistema está preparado para ser escalado o mejorado, permitiendo agregar nuevas funcionalidades como autenticación de usuarios, generación de reportes, integración con servicios externos, o una interfaz gráfica para facilitar el uso.
+## ✅ Conclusión
 
-para poder conectarse a la base de datos correctamente si necesita la ruta donde se encuentra en su dispositivo y colocarla en "application.properties"
-y se va a entrelasar sola debido a que tiene sus dependencias.
+Este proyecto es una aplicación funcional creada con Java y Spring Boot, centrada en la gestión de cursos e inscripciones. Está bien estructurado, separando la lógica del sistema, los datos y la conexión con la base de datos.
 
-5. Pruebas unitarias
-Este proyecto incluye pruebas unitarias que tienen como objetivo verificar que partes específicas del sistema funcionan correctamente de manera individual. Estas pruebas están orientadas especialmente a los servicios del proyecto, es decir, a la lógica que se encarga de procesar los datos antes de enviarlos o guardarlos.
+Se conecta a una base de datos real en la nube (Oracle Cloud), lo que garantiza que los datos se guarden de forma segura y accesible desde distintos lugares.
 
-Las pruebas fueron creadas utilizando las herramientas JUnit y Mockito, que son ampliamente utilizadas en proyectos Java para asegurar la calidad del código.
+Para ejecutarlo, basta con tener Java, un entorno de desarrollo como IntelliJ, importar el proyecto, conectarse correctamente a la base de datos, y ejecutar la aplicación desde la clase principal.
 
-En este caso, las pruebas permiten verificar, por ejemplo:
+Además, gracias a las pruebas unitarias, se puede asegurar que la lógica principal del sistema funciona bien, incluso cuando se actualiza el código o se agregan nuevas funciones.
 
-Que una inscripción se guarde correctamente.
-
-Que al buscar una inscripción por su identificador, el resultado sea correcto.
-
-Que el sistema se comporte de forma esperada incluso cuando los datos no existen o hay errores.
-
-Estas pruebas se ejecutan de forma automática dentro del entorno de desarrollo y permiten asegurar que los cambios en el código no rompan funcionalidades existentes. Son especialmente útiles para mantener el proyecto en crecimiento sin perder estabilidad.
-
-El objetivo de estas pruebas no es ver una interfaz visual, sino confirmar que la lógica interna del sistema funciona tal como se espera.
-
-✅ Conclusión
-Este proyecto representa una aplicación funcional desarrollada con Java y Spring Boot, orientada a la gestión de inscripciones de usuarios a cursos. Está estructurado siguiendo buenas prácticas de programación: separando claramente las capas de modelo, lógica de negocio, acceso a datos y controladores.
-
-Su conexión está configurada para trabajar con una base de datos real en Oracle Cloud, lo que permite persistencia de datos en la nube, acceso remoto y escalabilidad futura.
-
-Cualquier persona que desee ejecutar el proyecto debe:
-
-Tener instalado Java y un entorno compatible como IntelliJ.
-
-Importar el proyecto, esperar que se configuren las dependencias y luego ejecutarlo desde la clase principal.
-
-Asegurarse de tener acceso a la base de datos en Oracle Cloud con las credenciales correctas.
-
-Probar el sistema a través de un navegador o herramienta de pruebas como Postman.
-
-Además, el proyecto cuenta con pruebas unitarias que garantizan que la lógica principal funciona correctamente, ayudando a mantener la estabilidad y calidad del sistema a medida que se desarrollan nuevas funciones.
-
-En resumen, se trata de una aplicación bien estructurada, lista para ejecutarse y ampliarse, ideal para ambientes de prueba, evaluación académica o como base para proyectos más avanzados.
+En resumen, es una base sólida para proyectos más grandes, ideal tanto para aprendizaje como para usar en entornos reales o académicos.
