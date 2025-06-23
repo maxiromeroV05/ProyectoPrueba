@@ -44,7 +44,7 @@ class InscripcionControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(inscripcionEjemplo)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(inscripcionEjemplo.getId()));
+                .andExpect(jsonPath("$.id").value(inscripcionEjemplo.getIdI()));
     }
 
     @Test

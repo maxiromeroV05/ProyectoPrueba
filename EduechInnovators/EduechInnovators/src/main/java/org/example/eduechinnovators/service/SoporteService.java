@@ -22,7 +22,7 @@ public class SoporteService {
     }
 
     public Soporte guardarSoporte(Soporte soporte) {
-        soporte.setId(0); // forzar nuevo ID
+        soporte.setIdS(0); // forzar nuevo ID
         return repository.save(soporte);
     }
 

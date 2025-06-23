@@ -40,7 +40,7 @@ class UsuarioRepositoryTest {
         nuevo.setNombre("Nuevo");
 
         Usuario guardado = new Usuario();
-        guardado.setId(5);
+        guardado.setIdU(5);
         guardado.setNombre("Nuevo");
 
         when(jpaUsuarioRepository.save(nuevo)).thenReturn(guardado);
@@ -48,14 +48,14 @@ class UsuarioRepositoryTest {
         Usuario resultado = usuarioRepository.guardarUsuario(nuevo);
 
         assertNotNull(resultado);
-        assertEquals(5, resultado.getId());
+        assertEquals(5, resultado.getIdU());
         assertEquals("Nuevo", resultado.getNombre());
     }
 
     @Test
     void buscarUsuarioId() {
         Usuario usuario = new Usuario();
-        usuario.setId(1);
+        usuario.setIdU(1);
         usuario.setNombre("Max");
 
         when(jpaUsuarioRepository.findById(1)).thenReturn(Optional.of(usuario));
@@ -63,7 +63,7 @@ class UsuarioRepositoryTest {
         Usuario resultado = usuarioRepository.buscarUsuarioId(1);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdU());
         assertEquals("Max", resultado.getNombre());
     }
 
@@ -71,11 +71,11 @@ class UsuarioRepositoryTest {
     void editarUsuario() {
         int id = 1;
         Usuario usuarioExistente = new Usuario();
-        usuarioExistente.setId(id);
+        usuarioExistente.setIdU(id);
         usuarioExistente.setNombre("Max");
 
         Usuario usuarioEditado = new Usuario();
-        usuarioEditado.setId(id);
+        usuarioEditado.setIdU(id);
         usuarioEditado.setNombre("Editado");
         usuarioEditado.setApellido("Apellido");
         usuarioEditado.setEmail("email@test.com");
@@ -88,7 +88,7 @@ class UsuarioRepositoryTest {
         Usuario resultado = usuarioRepository.editarUsuario(usuarioEditado);
 
         assertNotNull(resultado);
-        assertEquals(id, resultado.getId());
+        assertEquals(id, resultado.getIdU());
         assertEquals("Editado", resultado.getNombre());
         assertEquals("Apellido", resultado.getApellido());
         assertEquals("email@test.com", resultado.getEmail());
@@ -100,7 +100,7 @@ class UsuarioRepositoryTest {
     @Test
     void editarUsuario_noExiste() {
         Usuario usuarioEditado = new Usuario();
-        usuarioEditado.setId(99);
+        usuarioEditado.setIdU(99);
 
         when(jpaUsuarioRepository.findById(99)).thenReturn(Optional.empty());
 

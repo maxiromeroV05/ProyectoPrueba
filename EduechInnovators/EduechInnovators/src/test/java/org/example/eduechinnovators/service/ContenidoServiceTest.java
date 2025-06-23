@@ -33,7 +33,7 @@ class ContenidoServiceTest {
         Contenido resultado = service.guardar(contenido);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdC());
         assertEquals("Mate", resultado.getMateria());
     }
 
@@ -56,7 +56,7 @@ class ContenidoServiceTest {
         Contenido resultado = service.buscarPorId(2);
 
         assertNotNull(resultado);
-        assertEquals(2, resultado.getId());
+        assertEquals(2, resultado.getIdC());
     }
 
     @Test

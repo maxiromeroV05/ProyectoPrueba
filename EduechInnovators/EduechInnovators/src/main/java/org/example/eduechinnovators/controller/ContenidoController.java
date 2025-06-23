@@ -15,8 +15,8 @@ public class ContenidoController {
     private ContenidoService service;
 
     @PostMapping
-    public Contenido crear(@RequestBody Contenido c) {
-        return service.guardar(c);
+    public Contenido crear(@RequestBody Contenido contenido) {
+        return service.guardar(contenido);
     }
 
     @GetMapping
@@ -25,18 +25,19 @@ public class ContenidoController {
     }
 
     @GetMapping("/{id}")
-    public Contenido obtener(@PathVariable int id) {
-        return service.buscarPorId(id);
+    public Contenido obtener(@PathVariable("id") int idContenido) {
+        return service.buscarPorId(idContenido);
     }
 
     @PutMapping("/{id}")
-    public Contenido editar(@PathVariable int id, @RequestBody Contenido nuevo) {
-        return service.editar(id, nuevo);
+    public Contenido editar(@PathVariable("id") int idContenido, @RequestBody Contenido nuevoContenido) {
+        return service.editar(idContenido, nuevoContenido);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable int id) {
-        service.eliminar(id);
+    public String eliminar(@PathVariable("id") int idContenido) {
+        return service.eliminar(idContenido);
     }
 }
+
 

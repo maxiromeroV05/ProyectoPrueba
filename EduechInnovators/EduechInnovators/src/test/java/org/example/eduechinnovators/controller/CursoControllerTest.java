@@ -32,7 +32,7 @@ class CursoControllerTest {
         Curso resultado = cursoController.crearCurso(curso);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdCN());
         assertEquals("Java", resultado.getNombre());
     }
 
@@ -69,7 +69,7 @@ class CursoControllerTest {
         Curso resultado = cursoController.editarCurso(id, nuevo);
 
         assertNotNull(resultado);
-        assertEquals(id, resultado.getId());
+        assertEquals(id, resultado.getIdCN());
         assertEquals("JavaScript", resultado.getNombre());
     }
 

@@ -24,7 +24,7 @@ class PagoRepositoryTest {
         Pago resultado = pagoRepository.guardarPago(pago);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdP());
         assertEquals(1234567890, resultado.getTarjeta());
     }
 
@@ -42,7 +42,7 @@ class PagoRepositoryTest {
     void buscarPago_existente_debeRetornarPago() {
         Pago guardado = pagoRepository.guardarPago(new Pago(0, 444433332, 789, "otro@correo.com"));
 
-        Pago resultado = pagoRepository.buscarPago(guardado.getId());
+        Pago resultado = pagoRepository.buscarPago(guardado.getIdP());
 
         assertNotNull(resultado);
         assertEquals("otro@correo.com", resultado.getEmail());
@@ -59,7 +59,7 @@ class PagoRepositoryTest {
     void actualizarPago_existente_debeActualizarYRetornarPago() {
         // Arrange
         Pago original = pagoRepository.guardarPago(new Pago(0, 0000111122, 321, "antes@correo.com"));
-        Pago actualizado = new Pago(original.getId(), 999988887, 000, "nuevo@correo.com");
+        Pago actualizado = new Pago(original.getIdP(), 999988887, 000, "nuevo@correo.com");
 
         // Act
         Pago resultado = pagoRepository.actualizarPago(actualizado);
@@ -85,7 +85,7 @@ class PagoRepositoryTest {
     void eliminarPago_existente_debeEliminarPago() {
         Pago guardado = pagoRepository.guardarPago(new Pago(0, 567856785, 555, "delete@correo.com"));
 
-        pagoRepository.eliminar(guardado.getId());
+        pagoRepository.eliminar(guardado.getIdP());
 
         assertTrue(pagoRepository.obtenerPagos().isEmpty());
     }

@@ -81,8 +81,8 @@ class InscripcionServiceTest {
         Inscripcion resultado = inscripcionService.actualizarInscripcion(1, inscripcionActualizada);
 
         assertNotNull(resultado);
-        assertEquals(inscripcionActualizada.getIdCurso(), resultado.getIdCurso());
-        assertEquals(inscripcionActualizada.getIdUsuario(), resultado.getIdUsuario());
+        assertEquals(inscripcionActualizada.getIdC(), resultado.getIdC());
+        assertEquals(inscripcionActualizada.getIdU(), resultado.getIdU());
         verify(inscripcionRepository, times(1)).findById(1);
         verify(inscripcionRepository, times(1)).save(any(Inscripcion.class));
     }

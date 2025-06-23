@@ -18,7 +18,7 @@ public class PagoRepository {
 
     // Guardar un nuevo pago
     public Pago guardarPago(Pago pago) {
-        pago.setId(idCounter++);
+        pago.setIdP(idCounter++);
         pagos.add(pago);
         return pago;
     }
@@ -26,16 +26,16 @@ public class PagoRepository {
     // Buscar un pago por ID
     public Pago buscarPago(int id) {
         return pagos.stream()
-                .filter(pago -> pago.getId() == id)
+                .filter(pago -> pago.getIdP() == id)
                 .findFirst()
                 .orElse(null);
     }
 
     // Actualizar un pago
     public Pago actualizarPago(Pago pagoActualizado) {
-        Pago pagoExistente = buscarPago(pagoActualizado.getId());
+        Pago pagoExistente = buscarPago(pagoActualizado.getIdP());
         if (pagoExistente != null) {
-            pagoExistente.setId(pagoActualizado.getId());
+            pagoExistente.setIdP(pagoActualizado.getIdP());
             pagoExistente.setTarjeta(pagoActualizado.getTarjeta());
             pagoExistente.setClave(pagoActualizado.getClave());
             pagoExistente.setEmail(pagoActualizado.getEmail());
@@ -45,6 +45,6 @@ public class PagoRepository {
 
     // Eliminar un pago por ID
     public void eliminar(int id) {
-        pagos.removeIf(pago -> pago.getId() == id);
+        pagos.removeIf(pago -> pago.getIdP() == id);
     }
 }

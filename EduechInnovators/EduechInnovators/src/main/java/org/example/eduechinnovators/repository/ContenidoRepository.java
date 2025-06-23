@@ -16,20 +16,20 @@ public class ContenidoRepository {
     }
 
     public Contenido guardarContenido(Contenido contenido) {
-        contenido.setId(idCounter++);
+        contenido.setIdC(idCounter++);
         contenidos.add(contenido);
         return contenido;
     }
 
     public Contenido buscarContenido(int id) {
         return contenidos.stream()
-                .filter(contenido -> contenido.getId() == id)
+                .filter(contenido -> contenido.getIdC() == id)
                 .findFirst()
                 .orElse(null);
     }
 
     public Contenido actualizarContenido(Contenido contenidoActualizado) {
-        Contenido existente = buscarContenido(contenidoActualizado.getId());
+        Contenido existente = buscarContenido(contenidoActualizado.getIdC());
         if (existente != null) {
             existente.setMateria(contenidoActualizado.getMateria());
             existente.setEvaluaciones(contenidoActualizado.getEvaluaciones());
@@ -40,7 +40,7 @@ public class ContenidoRepository {
     }
 
     public void eliminar(int id) {
-        contenidos.removeIf(contenido -> contenido.getId() == id);
+        contenidos.removeIf(contenido -> contenido.getIdC() == id);
     }
 }
 

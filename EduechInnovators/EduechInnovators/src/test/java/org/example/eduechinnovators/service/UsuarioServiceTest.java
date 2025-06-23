@@ -43,7 +43,7 @@ class UsuarioServiceTest {
         nuevo.setNombre("Nuevo");
 
         Usuario guardado = new Usuario();
-        guardado.setId(5);
+        guardado.setIdU(5);
         guardado.setNombre("Nuevo");
 
         when(usuarioRepository.guardarUsuario(nuevo)).thenReturn(guardado);
@@ -51,7 +51,7 @@ class UsuarioServiceTest {
         Usuario resultado = usuarioService.guardarUsuario(nuevo);
 
         assertNotNull(resultado);
-        assertEquals(5, resultado.getId());
+        assertEquals(5, resultado.getIdU());
         assertEquals("Nuevo", resultado.getNombre());
         verify(usuarioRepository).guardarUsuario(nuevo);
     }
@@ -59,7 +59,7 @@ class UsuarioServiceTest {
     @Test
     void buscarUsuarioId() {
         Usuario usuario = new Usuario();
-        usuario.setId(1);
+        usuario.setIdU(1);
         usuario.setNombre("Max");
 
         when(usuarioRepository.buscarUsuarioId(1)).thenReturn(usuario);
@@ -67,7 +67,7 @@ class UsuarioServiceTest {
         Usuario resultado = usuarioService.buscarUsuarioId(1);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdU());
         assertEquals("Max", resultado.getNombre());
         verify(usuarioRepository).buscarUsuarioId(1);
     }
@@ -76,7 +76,7 @@ class UsuarioServiceTest {
     void editarUsuario() {
         int id = 1;
         Usuario usuarioEditado = new Usuario();
-        usuarioEditado.setId(id);
+        usuarioEditado.setIdU(id);
         usuarioEditado.setNombre("Editado");
 
         when(usuarioRepository.editarUsuario(usuarioEditado)).thenReturn(usuarioEditado);
@@ -84,7 +84,7 @@ class UsuarioServiceTest {
         Usuario resultado = usuarioService.editarUsuario(id, usuarioEditado);
 
         assertNotNull(resultado);
-        assertEquals(id, resultado.getId());
+        assertEquals(id, resultado.getIdU());
         assertEquals("Editado", resultado.getNombre());
         verify(usuarioRepository).editarUsuario(usuarioEditado);
     }

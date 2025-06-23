@@ -30,7 +30,7 @@ public class UsuarioRepository {
 
     // Editar un usuario
     public Usuario editarUsuario(Usuario usuarioEditado) {
-        Usuario usuarioExistente = buscarUsuarioId(usuarioEditado.getId());
+        Usuario usuarioExistente = buscarUsuarioId(usuarioEditado.getIdU());
         if (usuarioExistente != null) {
             usuarioExistente.setNombre(usuarioEditado.getNombre());
             usuarioExistente.setApellido(usuarioEditado.getApellido());

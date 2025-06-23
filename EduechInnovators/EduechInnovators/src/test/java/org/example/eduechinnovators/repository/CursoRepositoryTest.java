@@ -23,7 +23,7 @@ class CursoRepositoryTest {
         Curso guardado = repository.guardarCurso(curso);
 
         assertNotNull(guardado);
-        assertEquals(1, guardado.getId());
+        assertEquals(1, guardado.getIdCN());
         assertEquals("Java", guardado.getNombre());
     }
 
@@ -41,7 +41,7 @@ class CursoRepositoryTest {
     void buscarCurso_existente() {
         Curso guardado = repository.guardarCurso(new Curso(0, "SQL", "2025", "Prof. C", "S"));
 
-        Curso resultado = repository.buscarCurso(guardado.getId());
+        Curso resultado = repository.buscarCurso(guardado.getIdCN());
 
         assertNotNull(resultado);
         assertEquals("SQL", resultado.getNombre());
@@ -58,7 +58,7 @@ class CursoRepositoryTest {
     void actualizarCurso_existente() {
         Curso guardado = repository.guardarCurso(new Curso(0, "HTML", "2024", "Prof. D", "N"));
 
-        Curso actualizado = new Curso(guardado.getId(), "HTML5", "2025", "Prof. E", "S");
+        Curso actualizado = new Curso(guardado.getIdCN(), "HTML5", "2025", "Prof. E", "S");
 
         Curso resultado = repository.actualizarCurso(actualizado);
 
@@ -82,7 +82,7 @@ class CursoRepositoryTest {
     void eliminarCurso() {
         Curso guardado = repository.guardarCurso(new Curso(0, "JavaScript", "2025", "Prof. G", "S"));
 
-        repository.eliminar(guardado.getId());
+        repository.eliminar(guardado.getIdCN());
 
         assertTrue(repository.obtenerCursos().isEmpty());
     }

@@ -34,7 +34,7 @@ class ContenidoRepositoryTest {
         Contenido resultado = repository.guardarContenido(contenido);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdC());
         assertEquals("Matemáticas", resultado.getMateria());
         verify(repository, times(1)).guardarContenido(contenido);
     }

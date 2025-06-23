@@ -29,7 +29,7 @@ class CursoServiceTest {
     @BeforeEach
     void setUp() {
         curso = new Curso();
-        curso.setId(1);
+        curso.setIdCN(1);
         curso.setNombre("Java");
         curso.setGestion("2025");
         curso.setInstructores("Profesor X");
@@ -65,7 +65,7 @@ class CursoServiceTest {
         Curso resultado = cursoService.buscarCursoId(1);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdCN());
         verify(cursoRepository).findById(1);
     }
 

@@ -29,7 +29,7 @@ class SoporteControllerTest {
     @BeforeEach
     void setUp() {
         soporte = new Soporte();
-        soporte.setId(1);
+        soporte.setIdS(1);
         // Asume que Soporte tiene otros atributos, asigna valores si quieres.
     }
 
@@ -52,7 +52,7 @@ class SoporteControllerTest {
         Soporte resultado = controller.obtenerSoporte(1);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdS());
         verify(service).buscarSoporteId(1);
     }
 

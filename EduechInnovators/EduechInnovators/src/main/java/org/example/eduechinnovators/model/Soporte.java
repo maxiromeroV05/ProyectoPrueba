@@ -15,7 +15,8 @@ public class Soporte {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gen_seq")
     @SequenceGenerator(name = "gen_seq", sequenceName = "GENERIC_SEQ", allocationSize = 1)
-    private int id;
+    @Column(name = "id_S")
+    private int idS;
 
     @Column(name = "USUARIO_ID")
     private int usuarioId;

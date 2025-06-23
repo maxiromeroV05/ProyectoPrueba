@@ -16,20 +16,20 @@ public class CursoRepository {
     }
 
     public Curso guardarCurso(Curso curso) {
-        curso.setId(idCounter++);
+        curso.setIdCN(idCounter++);
         cursos.add(curso);
         return curso;
     }
 
     public Curso buscarCurso(int id) {
         return cursos.stream()
-                .filter(curso -> curso.getId() == id)
+                .filter(curso -> curso.getIdCN() == id)
                 .findFirst()
                 .orElse(null);
     }
 
     public Curso actualizarCurso(Curso cursoActualizado) {
-        Curso cursoExistente = buscarCurso(cursoActualizado.getId());
+        Curso cursoExistente = buscarCurso(cursoActualizado.getIdCN());
         if (cursoExistente != null) {
             cursoExistente.setNombre(cursoActualizado.getNombre());
             cursoExistente.setGestion(cursoActualizado.getGestion());
@@ -40,6 +40,6 @@ public class CursoRepository {
     }
 
     public void eliminar(int id) {
-        cursos.removeIf(curso -> curso.getId() == id);
+        cursos.removeIf(curso -> curso.getIdCN() == id);
     }
 }

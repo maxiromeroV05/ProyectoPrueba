@@ -40,7 +40,7 @@ class UsuarioControllerTest {
     void obtenerUsuarioPorId() {
         // Arrange
         Usuario usuario = new Usuario();
-        usuario.setId(1);
+        usuario.setIdU(1);
         usuario.setNombre("Max");
         when(service.buscarUsuarioId(1)).thenReturn(usuario);
 
@@ -49,7 +49,7 @@ class UsuarioControllerTest {
 
         // Assert
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdU());
         assertEquals("Max", resultado.getNombre());
     }
 
@@ -60,7 +60,7 @@ class UsuarioControllerTest {
         nuevo.setNombre("Nuevo");
 
         Usuario guardado = new Usuario();
-        guardado.setId(5);
+        guardado.setIdU(5);
         guardado.setNombre("Nuevo");
 
         when(service.guardarUsuario(nuevo)).thenReturn(guardado);
@@ -70,7 +70,7 @@ class UsuarioControllerTest {
 
         // Assert
         assertNotNull(resultado);
-        assertEquals(5, resultado.getId());
+        assertEquals(5, resultado.getIdU());
         assertEquals("Nuevo", resultado.getNombre());
     }
 
@@ -82,7 +82,7 @@ class UsuarioControllerTest {
         usuarioEditado.setNombre("Editado");
 
         Usuario usuarioResultado = new Usuario();
-        usuarioResultado.setId(id);
+        usuarioResultado.setIdU(id);
         usuarioResultado.setNombre("Editado");
 
         when(service.editarUsuario(id, usuarioEditado)).thenReturn(usuarioResultado);
@@ -92,7 +92,7 @@ class UsuarioControllerTest {
 
         // Assert
         assertNotNull(resultado);
-        assertEquals(id, resultado.getId());
+        assertEquals(id, resultado.getIdU());
         assertEquals("Editado", resultado.getNombre());
     }
 

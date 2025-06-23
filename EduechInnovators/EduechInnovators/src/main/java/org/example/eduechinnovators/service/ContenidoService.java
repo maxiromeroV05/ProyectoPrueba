@@ -1,7 +1,8 @@
 package org.example.eduechinnovators.service;
 
-import org.example.eduechinnovators.model.Contenido;
 import org.example.eduechinnovators.jparepository.JpaContenidoRepository;
+import org.example.eduechinnovators.model.Contenido;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +22,12 @@ public class ContenidoService {
         return repository.findAll();
     }
 
-    public Contenido buscarPorId(int id) {
-        return repository.findById(id).orElse(null);
+    public Contenido buscarPorId(int idContenido) {
+        return repository.findById(idContenido).orElse(null);
     }
 
-    public Contenido editar(int id, Contenido nuevo) {
-        Contenido existente = buscarPorId(id);
+    public Contenido editar(int idContenido, Contenido nuevo) {
+        Contenido existente = buscarPorId(idContenido);
         if (existente != null) {
             existente.setMateria(nuevo.getMateria());
             existente.setEvaluaciones(nuevo.getEvaluaciones());
@@ -37,9 +38,10 @@ public class ContenidoService {
         return null;
     }
 
-    public String eliminar(int id) {
-        repository.deleteById(id);
-        return "Se eliminó con éxito";
+    public String eliminar(int idContenido) {
+        repository.deleteById(idContenido);
+        return "Contenido eliminado con éxito";
     }
 }
+
 

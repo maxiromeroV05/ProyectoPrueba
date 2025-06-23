@@ -36,8 +36,8 @@ public class InscripcionService {
         if (optional.isPresent()) {
             Inscripcion inscripcionExistente = optional.get();
             inscripcionExistente.setFechaInscripcion(inscripcionActualizada.getFechaInscripcion());
-            inscripcionExistente.setIdCurso(inscripcionActualizada.getIdCurso());
-            inscripcionExistente.setIdUsuario(inscripcionActualizada.getIdUsuario());
+            inscripcionExistente.setIdC(inscripcionActualizada.getIdC());
+            inscripcionExistente.setIdU(inscripcionActualizada.getIdU());
             return inscripcionRepository.save(inscripcionExistente);
         } else {
             return null;

@@ -68,7 +68,7 @@ class SoporteServiceTest {
 
         Soporte resultado = soporteService.guardarSoporte(soporte);
 
-        assertEquals(0, resultado.getId());
+        assertEquals(0, resultado.getIdS());
         assertEquals("Error en el sistema", resultado.getMensaje());
         verify(soporteRepository).save(any(Soporte.class));
     }

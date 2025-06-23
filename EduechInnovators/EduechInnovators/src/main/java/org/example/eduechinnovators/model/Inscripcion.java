@@ -16,17 +16,17 @@ public class Inscripcion {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inscripcion_seq")
     @SequenceGenerator(name = "inscripcion_seq", sequenceName = "INSCRIPCION_SEQ", allocationSize = 1)
-    @Column(name = "ID")
-    private int id;
+    @Column(name = "ID_I")
+    private int idI;
 
     @Column(name = "FECHA_INSCRIPCION", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fechaInscripcion;
 
-    @Column(name = "ID_CURSO", nullable = false)
-    private int idCurso;
+    @Column(name = "ID_C", nullable = false)
+    private int idC;
 
-    @Column(name = "ID_USUARIO", nullable = false)
-    private int idUsuario;
+    @Column(name = "ID_U", nullable = false)
+    private int idU;
 
 }

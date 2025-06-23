@@ -35,7 +35,7 @@ class ContenidoControllerTest {
 
         // Assert
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdC());
         assertEquals("Matemáticas", resultado.getMateria());
     }
 
@@ -65,7 +65,7 @@ class ContenidoControllerTest {
 
         // Assert
         assertNotNull(resultado);
-        assertEquals(2, resultado.getId());
+        assertEquals(2, resultado.getIdC());
         assertEquals("Ciencias", resultado.getMateria());
     }
 

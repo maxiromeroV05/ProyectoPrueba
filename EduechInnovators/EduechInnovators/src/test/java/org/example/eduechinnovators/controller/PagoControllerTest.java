@@ -29,7 +29,7 @@ class PagoControllerTest {
     @BeforeEach
     void setUp() {
         pago = new Pago();
-        pago.setId(1);
+        pago.setIdP(1);
         // Si Pago tiene más atributos, asigna valores aquí
     }
 
@@ -40,7 +40,7 @@ class PagoControllerTest {
         Pago resultado = pagoController.crearPago(pago);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdP());
         verify(pagoService).guardarPago(pago);
     }
 
@@ -63,7 +63,7 @@ class PagoControllerTest {
         Pago resultado = pagoController.obtenerPagoPorId(1);
 
         assertNotNull(resultado);
-        assertEquals(1, resultado.getId());
+        assertEquals(1, resultado.getIdP());
         verify(pagoService).obtenerPagoPorId(1);
     }
 

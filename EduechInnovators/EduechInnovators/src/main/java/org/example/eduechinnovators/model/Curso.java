@@ -9,13 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "CURSO") // en mayúscula si la tabla en Oracle está en mayúscula
+@Table(name = "CURSO")
 public class Curso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "curso_seq")
     @SequenceGenerator(name = "curso_seq", sequenceName = "CURSO_SEQ", allocationSize = 1)
-    private int id;
+    @Column(name = "ID_CN")
+    private int idCN;
 
     private String nombre;
     private String gestion;
